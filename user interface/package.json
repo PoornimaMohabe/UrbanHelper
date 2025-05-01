@@ -1,0 +1,51 @@
+{
+  "name": "user",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "flowbite": "^3.1.2",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@chakra-ui/react": "^2.10.4",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@eslint/js": "^9.22.0",
+    "@tailwindcss/postcss": "^4.1.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.9.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "framer-motion": "^12.9.2",
+    "globals": "^16.0.0",
+    "lucide-react": "^0.503.0",
+    "postcss": "^8.5.3",
+    "react": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.5.3",
+    "react-slick": "^0.30.3",
+    "react-toastify": "^11.0.5",
+    "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0",
+    "slick-carousel": "^1.8.1",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.3.1"
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
