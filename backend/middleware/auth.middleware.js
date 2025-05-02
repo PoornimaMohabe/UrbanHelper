@@ -16,13 +16,17 @@ const authmiddleware = async (req, res, next) => {
                 else {
                      console.log("currrent user" , decoded.tokenUser);
 
-                    if(req.method == "POST" ||  req.method == "GET"  ){
-                        req.body.username =  decoded.tokenUser.name
-                        req.body.userId =  decoded.tokenUser._id
-                        req.body.mobileNumber = decoded.tokenUser.mobileNumber
-                        req.body.email = decoded.tokenUser.email
+                     if(req.method == "POST" || req.method == "GET"){
+
+                        req.user = {
+                           username: decoded.tokenUser.name,
+                           userId: decoded.tokenUser._id,
+                           mobileNumber: decoded.tokenUser.mobileNumber,
+                           email: decoded.tokenUser.email,
+                       };
                     }
-                    next();
+
+                   next()
                 }
             });
         }

@@ -13,6 +13,7 @@ import VendorSection from "./pages/userHome/VendorSection";
 import AvailableVendors from "./pages/vailableVendors/AvailableVendors";
 import VendorDetails from "./pages/vailableVendors/VendorDetails";
 import { Toaster } from "react-hot-toast";
+import VendorDashboard from "./pages/vendorDashboard/VendorDashboard";
 
 function App() {
   return (
@@ -23,7 +24,17 @@ function App() {
         {/* <AuthLayout/>       */}
       </div>
       <div className="mt-28">
-        <AllRoutes />
+        {/* <AllRoutes /> */}
+        <VendorDashboard />
+        {/* <VendorDetails /> */}
+        {/* <BookingDetails /> */}
+        {/* <Payment /> */}
+        {/* <AvailableVendors /> */}
+        {/* <VendorCarousel /> */}
+        {/* <VendorSection /> */}
+        {/* <HomeStatic /> */}
+
+        {/* Uncomment the components you want to render */}
         {/* <AuthLayout/> */}
         {/* <About/> */}
         {/* <ContactUs/> */}

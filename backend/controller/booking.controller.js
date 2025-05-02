@@ -23,15 +23,18 @@ const getAllBookings = async (req, res) => {
 };
 
 
-// const getUserBookings = async (req, res) => {
-//     const { userId } = req.params;
-//     try {
-//         const bookings = await BookingModel.find({ userId }).populate("vendorId");
-//         res.status(200).json({ bookings });
-//     } catch (error) {
-//         res.status(400).json({ msg: error.message });
-//     }
-// };
+const getUserBookings = async (req, res) => {
+    const id = req.user.userId
+    console.log(id);
+    
+
+    try {
+        const bookings = await BookingModel.find({ userId : id })
+        res.status(200).json({status : true, bookings });
+    } catch (error) {
+        res.status(400).json({status : false, msg: error.message });
+    }
+};
 
 // const getVendorBookings = async (req, res) => {
 //     const { vendorId } = req.params;
@@ -70,7 +73,7 @@ const deleteBooking = async (req, res) => {
 module.exports = {
     createBooking,
     getAllBookings,
-    // getUserBookings,
+    getUserBookings,
     // getVendorBookings,
     updateBookingStatus, 
     deleteBooking

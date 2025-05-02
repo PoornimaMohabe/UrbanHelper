@@ -12,5 +12,6 @@ export const BOOK_VENDOR = `${BASE_URL}/book-vendor`
 
 
 //user
-export const GET_USER_BOOKING = `${BASE_URL}/get-all-bookings`
+export const GET_ALL_USER_BOOKING = `${BASE_URL}/get-all-bookings`
 export const DELETE_BOOKING = `${BASE_URL}/delete-booking`
+export const GET_USER_BOOKING = `${BASE_URL}/get-user-booking`
