@@ -5,7 +5,7 @@ require("dotenv").config();
 
 
 const registerVendor = async (req, res) => {
-    const { name, email, password, mobileNumber, serviceType, experience, charges, location, role } = req.body;
+    const { name, email, password, mobileNumber, serviceType, experience, charges, location,profileImage,status, description,  role } = req.body;
 
     try {
         const vendorEmail = await VendorModel.findOne({ email });
@@ -29,7 +29,10 @@ const registerVendor = async (req, res) => {
                         serviceType,
                         experience,
                         charges,
-                        location
+                        location, 
+                        profileImage, 
+                        status, 
+                        description
                     });
                     await newVendor.save();
                     res.status(200).json({status : true , msg: `Vendor registered successfully` });

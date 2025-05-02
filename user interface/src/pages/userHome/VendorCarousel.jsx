@@ -1,34 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import userhomeStatic from '../../assets/images/userhomeStatic.png';
+import React, { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import userhomeStatic from "../../assets/images/userhomeStatic.png";
 
 const slides = [
   {
-    title: 'Find Vendors Easily',
+    title: "Find Vendors Easily",
     description:
-      'Quickly discover trusted vendors near you with just a few clicks. Filter by location, budget, and rating to make wedding planning effortless.',
-    power: 'Say goodbye to hours of searching—our platform brings the best vendors straight to you.',
-    button: 'Find Vendors',
+      "Quickly discover trusted vendors near you with just a few clicks. Filter by location, budget, and rating to make wedding planning effortless.",
+    power:
+      "Say goodbye to hours of searching—our platform brings the best vendors straight to you.",
+    button: "Find Vendors",
     image: userhomeStatic,
-    bg: 'bg-gradient-to-r from-blue-50 to-cyan-100',
+    bg: "bg-gradient-to-r from-blue-50 to-cyan-100",
   },
   {
-    title: 'All-in-One Vendor Hub',
+    title: "All-in-One Vendor Hub",
     description:
-      'From photographers to decorators, we bring all wedding vendors under one roof to simplify your journey and save your time.',
-    power: 'Everything you need for your big day, organized in one place for your convenience.',
-    button: 'Explore Vendors',
+      "From photographers to decorators, we bring all wedding vendors under one roof to simplify your journey and save your time.",
+    power:
+      "Everything you need for your big day, organized in one place for your convenience.",
+    button: "Explore Vendors",
     image: userhomeStatic,
-    bg: 'bg-gradient-to-r from-pink-50 to-red-100',
+    bg: "bg-gradient-to-r from-pink-50 to-red-100",
   },
   {
-    title: 'Vendors at Your Doorstep',
+    title: "Vendors at Your Doorstep",
     description:
-      'Book and relax — our trusted vendors come right to your doorstep to serve you with quality and care for your big day.',
-    power: 'Enjoy peace of mind as the best professionals handle every detail with precision.',
-    button: 'Book Vendor',
+      "Book and relax — our trusted vendors come right to your doorstep to serve you with quality and care for your big day.",
+    power:
+      "Enjoy peace of mind as the best professionals handle every detail with precision.",
+    button: "Book Vendor",
     image: userhomeStatic,
-    bg: 'bg-gradient-to-r from-green-50 to-emerald-100',
+    bg: "bg-gradient-to-r from-green-50 to-emerald-100",
   },
 ];
 export default function VendorCarousel() {
@@ -62,8 +65,12 @@ export default function VendorCarousel() {
               <div className="h-full max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
                 {/* Left: Text */}
                 <div className="lg:w-1/2 text-center lg:text-left max-w-xl ">
-                  <h2 className="text-4xl font-bold text-gray-800 mb-4">{slide.title}</h2>
-                  <p className="text-gray-600 mb-3 text-lg">{slide.description}</p>
+                  <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                    {slide.title}
+                  </h2>
+                  <p className="text-gray-600 mb-3 text-lg">
+                    {slide.description}
+                  </p>
                   <p className="text-gray-700 font-medium italic mb-6 leading-relaxed">
                     {slide.power}
                   </p>
@@ -72,7 +79,6 @@ export default function VendorCarousel() {
                   </button>
                 </div>
 
-                {/* Right: Image */}
                 <div className="lg:w-1/2 flex justify-center items-center h-full">
                   <img
                     src={slide.image}
@@ -85,7 +91,6 @@ export default function VendorCarousel() {
           ))}
         </div>
 
-        {/* Arrows */}
         <button
           onClick={prevSlide}
           className="absolute top-1/2 -left-5 transform -translate-y-1/2 bg-white shadow-lg p-2 rounded-full hover:bg-gray-100 z-10"
@@ -100,14 +105,14 @@ export default function VendorCarousel() {
         </button>
       </div>
 
-      {/* Dots */}
       <div className="flex justify-center mt-6 space-x-2">
         {slides.map((_, index) => (
           <div
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full cursor-pointer transition ${current === index ? 'bg-[#00bcd4]' : 'bg-gray-300'
-              }`}
+            className={`w-3 h-3 rounded-full cursor-pointer transition ${
+              current === index ? "bg-[#00bcd4]" : "bg-gray-300"
+            }`}
           ></div>
         ))}
       </div>

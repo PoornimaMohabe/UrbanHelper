@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "flowbite": "^3.1.2",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2"
   },
   "devDependencies": {
     "@chakra-ui/react": "^2.10.4",

@@ -11,6 +11,33 @@ const bookingSchema = mongoose.Schema({
         ref: "vendorDetails",
         required: true
     },
+    vendorName :{
+        type: String,
+        required: true
+    }, 
+    vendorMobileNumber :{
+        type: String,
+        required: true
+    },
+    serviceType: {
+        type: String,
+        enum: [
+            "Electrician",
+            "Plumber",
+            "Cleaner",
+            "Cook",
+            "AC Technician",
+            "Carpenter",
+            "Painter",
+            "Welder",
+            "Spa Therapist",
+            "Salon Expert",
+            "Pest Control",
+            "Mechanic",
+            "Driver"
+        ],
+        required: true
+    },
     serviceDate: {
         type: String, // Example: "2025-05-01"
         required: true
