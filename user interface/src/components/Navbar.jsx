@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import logo from '../assets/images/logo.png'
 import {
   FaSearch,
   FaUser,
@@ -39,10 +40,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="text-center leading-tight">
-          <h1 className="text-2xl md:text-3xl font-semibold tracking-tight">
-            Atterley
-          </h1>
-          <p className="text-xs text-gray-500">a world of boutique style</p>
+          <img src={logo} alt="logo" className="object-cover h-16" />
         </div>
 
         {/* Right icons */}
