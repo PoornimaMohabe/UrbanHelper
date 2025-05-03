@@ -4,6 +4,7 @@ const cors = require("cors")
 const { userRouter } = require("./routes/user.routes")
 const { vendorRouter } = require("./routes/vendor.routes")
 const { bookingRouter } = require("./routes/booking.router")
+const { contactRouter } = require("./routes/contact.route")
 
 const app = express()
 app.use(express.json())
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
 app.use("/", userRouter)
 app.use("/", vendorRouter)
 app.use("/", bookingRouter)
+app.use("/", contactRouter);
 
 
 const PORT = process.env.PORT || 4500

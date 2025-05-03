@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { GET_VENDOR_BY_ID, BOOK_VENDOR } from "../../utils/url";
 import {
@@ -17,6 +17,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import Toastnotification from "../../utils/Toastnotification";
+import { useSelector } from "react-redux";
 
 const VendorDetails = () => {
   const { id } = useParams();
@@ -24,6 +25,10 @@ const VendorDetails = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
   const { showToast } = Toastnotification();
+
+  const state = useSelector((state) => state);
+  console.log(state.auth);
+  const navigate = useNavigate();
 
   const [vendor, setVendor] = useState({});
   const [bookingData, setBookingData] = useState({
@@ -48,6 +53,13 @@ const VendorDetails = () => {
   }, [id]);
 
   const handleBooking = async () => {
+    if (state.auth.role == false) {
+      showToast("Please login", "Please login to book a service.", "error");
+      localStorage.setItem("redirectPath", location.pathname);
+      navigate("/loginSignup");
+      return;
+    }
+
     const bookingPayload = {
       ...bookingData,
       userId: userDetails?._id,
