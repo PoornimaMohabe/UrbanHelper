@@ -36,9 +36,11 @@ function Login({ toggle }) {
             <span></span>
           </div>
           <div className="welcome-text">
-            <h2 className="text-white text-3xl font-bold">Welcome Back!</h2>
+            <h2 className="text-white text-3xl font-bold mb-6">Welcome Back! to
+               <br /> 
+                <span className="text-amber-300 text-sm">Urban Helper</span></h2>
             <p className="text-white text-lg">
-              Log in to explore local vendors
+            Welcome back! Log in to your account and take full control of your services.
             </p>
           </div>
         </div>

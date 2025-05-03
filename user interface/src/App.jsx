@@ -35,9 +35,9 @@ function App() {
         {/* <HomeStatic /> */}
 
         {/* Uncomment the components you want to render */}
-        {/* <AuthLayout/> */}
+        <AuthLayout/>
         {/* <About/> */}
-        <ContactUs/>
+        {/* <ContactUs/> */}
         {/* <HomeStatic />
         <VendorCarousel />
         <VendorSection /> */}

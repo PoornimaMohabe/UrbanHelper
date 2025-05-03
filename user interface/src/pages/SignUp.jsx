@@ -18,11 +18,12 @@ function SignUp({ toggle }) {
           </div>
 
           <div className="welcome-text">
-            <h2 className="text-white text-3xl font-bold">
-              Welcome to Local Finder
+            <h2 className="text-white text-3xl font-bold mb-6">
+              Welcome to
+              <br /> Urban Helper
             </h2>
             <p className="text-white text-lg">
-              Find and support your local vendors today
+            Create your free account in just a minute! Whether you’re looking to book trusted services or offer your skills as a vendor.
             </p>
           </div>
         </div>
