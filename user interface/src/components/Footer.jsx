@@ -31,6 +31,7 @@ import {
               Urban<br />
               <span className="font-bold">Helper.</span>
             </h1>
+            <p>Making everyday life easier, one service at a time.</p>
           </div>
   
     
@@ -72,7 +73,7 @@ import {
   
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-300 border-t border-[#ffffff33] pt-4 gap-2">
-          <p>©2020 letsone ltd. All rights reserved.</p>
+          <p>©2025 Urban Helper. All Rights Reserved.</p>
           <a href="#" className="hover:underline">
             Privacy Policy
           </a>

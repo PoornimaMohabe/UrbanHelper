@@ -25,7 +25,7 @@ function App() {
       </div>
       <div className="mt-28">
         {/* <AllRoutes /> */}
-        <VendorDashboard />
+        {/* <VendorDashboard /> */}
         {/* <VendorDetails /> */}
         {/* <BookingDetails /> */}
         {/* <Payment /> */}
@@ -37,7 +37,7 @@ function App() {
         {/* Uncomment the components you want to render */}
         {/* <AuthLayout/> */}
         {/* <About/> */}
-        {/* <ContactUs/> */}
+        <ContactUs/>
         {/* <HomeStatic />
         <VendorCarousel />
         <VendorSection /> */}

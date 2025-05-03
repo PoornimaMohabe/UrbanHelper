@@ -40,12 +40,13 @@ function ContactUs() {
             </div>
     
       
-            <div className="w-full md:w-1/2 flex justify-center">
+            <div className="w-full md:w-1/2 flex flex-col gap-10 justify-center ">
               <img
                 src="https://img.freepik.com/free-vector/contact-us-concept-illustration_114360-2299.jpg"
                 alt="Contact illustration"
-                className="w-80"
+                className="w-80 rounded-full object-cover"
               />
+              <p>Your thoughts matter to us. Whether it's a small issue or a big idea, we’re just one message away. Let's connect and make your experience even better.</p>
             </div>
           </div>
     
