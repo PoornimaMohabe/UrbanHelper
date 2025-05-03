@@ -39,11 +39,11 @@ const bookingSchema = mongoose.Schema({
         required: true
     },
     serviceDate: {
-        type: String, // Example: "2025-05-01"
+        type: String, 
         required: true
     },
     serviceTime: {
-        type: String, // Example: "5:00 PM"
+        type: String,
         required: true
     },
     address: {

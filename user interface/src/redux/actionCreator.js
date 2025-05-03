@@ -1,7 +1,7 @@
 import axios from "axios";
 import { LOGINFAILURE, LOGINLOADING, LOGINSUCCESS, LOGOUTFAILURE, LOGOUTLOADING, LOGOUTSUCCESS } from "./actionType"
 
-import { loginUrl, VENDOR_LOGIN_URL } from "../utils/url"; // ✅ Make sure this exists
+import { loginUrl, VENDOR_LOGIN_URL } from "../utils/url";
 
 export const loginFunction = (fromData, showToast, navigate) => {
   return async (dispatch) => {
@@ -9,7 +9,7 @@ export const loginFunction = (fromData, showToast, navigate) => {
 
     const { role, ...restData } = fromData;
 
-    // ✅ Decide URL based on role
+
     const url = role === "vendor" ? VENDOR_LOGIN_URL : loginUrl;
     console.log(role)
 
@@ -58,24 +58,24 @@ export const loginFunction = (fromData, showToast, navigate) => {
 
 
 
-export function logoutfunction(navigate,showToast ) {
+export function logoutfunction(navigate, showToast) {
 
-    return async (dispatch) => {
-        dispatch({ type: LOGOUTLOADING })
-        try {
-                dispatch({ type: LOGOUTSUCCESS  })
-                localStorage.removeItem('token');
-                localStorage.removeItem('user');
-                // localStorage.removeItem('user');
-                 
-                showToast(`Logout successfully` , "Logout successfully"  )
+  return async (dispatch) => {
+    dispatch({ type: LOGOUTLOADING })
+    try {
+      dispatch({ type: LOGOUTSUCCESS })
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
 
-                navigate("/login")
-        
-        } catch (error) {
-            dispatch({ type: LOGOUTFAILURE, payload: error.message })
-            showToast(`${error.message}` ,`${error.message}` , "error" )
 
-        }
+      showToast(`Logout successfully`, "Logout successfully")
+
+      navigate("/login")
+
+    } catch (error) {
+      dispatch({ type: LOGOUTFAILURE, payload: error.message })
+      showToast(`${error.message}`, `${error.message}`, "error")
+
     }
+  }
 }

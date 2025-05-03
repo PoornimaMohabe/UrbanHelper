@@ -60,7 +60,7 @@ const AvailableVendors = () => {
 
   return (
     <section className="bg-gradient-to-br from-[#dcdae2] to-[#686769] py-20 px-6 md:px-20 min-h-screen text-white">
-      {/* Top Section */}
+   
       <div className="text-center max-w-2xl mx-auto mb-6">
         <h2 className="text-3xl font-semibold mb-2 text-gray-900">
           Discover Professional Vendors

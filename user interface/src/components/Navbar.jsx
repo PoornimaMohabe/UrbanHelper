@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full fixed top-0 bg-white shadow-md z-50">
-      {/* Top bar */}
+   
       <div className="flex justify-between items-center px-4 md:px-8 py-4 border-b">
         {/* Hamburger (Mobile) */}
         <div className="md:hidden">
@@ -47,7 +47,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Search */}
+      
         <div className="relative hidden md:block">
           <input
             type="text"
@@ -57,12 +57,12 @@ const Navbar = () => {
           <FaSearch className="absolute left-3 top-2.5 text-gray-500" />
         </div>
 
-        {/* Logo */}
+    
         <div className="text-center leading-tight">
          <img src={logo} alt="logo" className="object-cover h-16"/>
         </div>
 
-        {/* Right icons */}
+       
         <div className="hidden md:flex space-x-8 text-xs items-center">
           <div className="flex flex-col items-center">
             <FaUser className="text-xl" />
@@ -86,7 +86,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Bottom nav links (Desktop) */}
+    
       <div className="hidden md:flex justify-center space-x-8 text-sm font-semibold uppercase text-gray-600 py-2 border-b">
         <Link to="/">
           <span
@@ -232,7 +232,7 @@ const Navbar = () => {
               </Link>
             )}
 
-            {/* Icons */}
+         
             <div className="flex space-x-8 text-xs items-center">
               <Link to="/loginSignup" onClick={() => setIsOpen(false)}>
                 <div className="flex flex-col items-center">

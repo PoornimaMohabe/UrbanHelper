@@ -14,7 +14,7 @@ function VendorSection() {
       {/* Become Vendor */}
       <section className="bg-gradient-to-r from-blue-50 via-white to-blue-100 mt-10 py-24 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-          {/* LEFT SIDE */}
+       
           <div className="flex-1 space-y-6">
             <h2 className="text-4xl font-extrabold text-gray-800 leading-tight">
               Empower Your Skills. <br /> Serve. Earn. Grow.
@@ -32,9 +32,9 @@ function VendorSection() {
             </Link>
           </div>
 
-          {/* RIGHT SIDE */}
+       
           <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* CARD 1: Benefits */}
+            {/* Benefits */}
             <div className="bg-white shadow-lg rounded-xl p-6 border border-gray-200 hover:shadow-2xl transition">
               <div className="flex items-center gap-4 mb-4">
                 <FaMoneyBillWave size={30} className="text-green-500" />
@@ -49,7 +49,7 @@ function VendorSection() {
               </p>
             </div>
 
-            {/* CARD 2: Vendor Success */}
+            {/*  Vendor Success */}
             <div className="bg-white shadow-lg rounded-xl p-6 border border-gray-200 hover:shadow-2xl transition">
               <div className="flex items-center gap-4 mb-4">
                 <GiAchievement size={30} className="text-purple-500" />

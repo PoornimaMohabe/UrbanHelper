@@ -32,10 +32,9 @@ const AllRoutes = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/vendor-registration" element={<VendorRegister />} />
-        {/* <Route path="/vendor-dashboard" element={<VendorDashboard />} /> */}
         <Route path="/service-request" element={<VendorOrderDetails />} />
 
-        {/* Add more routes here if needed */}
+
       </Routes>
     </ScrollToTop>
   );

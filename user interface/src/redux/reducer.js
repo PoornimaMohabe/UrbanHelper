@@ -8,7 +8,7 @@ const initialLoginState = {
     role: "",
     email: "",
     userDetails: "", 
-    // token : ""
+ 
 }
 
 export const loginReducer = (state = initialLoginState, action) => {

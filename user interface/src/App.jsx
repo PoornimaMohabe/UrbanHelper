@@ -21,38 +21,11 @@ function App() {
     <>
       <div>
         <Navbar />
-        {/* authlayout is parent of login and signup  */}
-        {/* <AuthLayout/>       */}
+
       </div>
 
       <div className="mt-28">
         <AllRoutes />
-        {/* <VendorDashboard /> */}
-        {/* <VendorOrderDetails /> */}
-        {/* <VendorSection /> */}
-        {/* <HomeStatic /> */}
-        {/* <VendorCarousel /> */}
-        {/* <AvailableVendors/> */}
-        {/* <VendorDetails/> */}
-        {/* <BookingDetails/> */}
-        {/* <Payment /> */}
-        {/* <Toaster position="top-center" reverseOrder={false} /> */}
-        {/* <About/> */}
-        {/* <ContactUs/> */}
-        {/* <AuthLayout/> */}
-        {/* <About/> */}
-        {/* <ContactUs/> */}
-        {/* <HomeStatic />
-        <VendorCarousel />
-        <VendorSection /> */}
-
-        {/* <AvailableVendors/> */}
-        {/* <VendorDetails/> */}
-        {/* <BookingDetails/> */}
-        {/* <Toaster position="top-center" reverseOrder={false} />
-        <Payment /> */}
-        {/* <VendorRegister /> */}
-
         <Footer />
       </div>
     </>

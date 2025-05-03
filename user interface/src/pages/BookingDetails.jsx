@@ -18,7 +18,7 @@ const BookingDetails = ({ booking }) => {
             <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-10 space-y-8">
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">Booking Summary</h2>
 
-                {/* User & Vendor Info */}
+
                 <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-1">
                         <h3 className="font-semibold text-gray-600">User ID</h3>
@@ -30,7 +30,7 @@ const BookingDetails = ({ booking }) => {
                     </div>
                 </div>
 
-                {/* Service Info */}
+
                 <div className="grid md:grid-cols-3 gap-6">
                     <div>
                         <h3 className="font-semibold text-gray-600">Service Date</h3>
@@ -53,7 +53,7 @@ const BookingDetails = ({ booking }) => {
                     </div>
                 </div>
 
-                {/* Address and Remarks */}
+
                 <div className="space-y-4">
                     <div>
                         <h3 className="font-semibold text-gray-600">Service Address</h3>
@@ -67,7 +67,7 @@ const BookingDetails = ({ booking }) => {
 
                 </div>
 
-                {/* Timestamps */}
+
                 <div className="text-xs text-gray-500 pt-6 border-t">
                     <p>Created at:</p>
                     <p>Last updated:</p>

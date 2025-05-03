@@ -66,12 +66,12 @@ export default function VendorCarousel() {
                 className={`inline-block w-full h-full ${slide.bg}`}
               >
                 <div className="h-full max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
-                  {/* Left: Text */}
+                 
                   <div className="lg:w-1/2 text-center lg:text-left max-w-xl ">
                     <h2 className="text-4xl font-bold text-gray-800 mb-4">
                       {slide.title}
                     </h2>
-                    <p className="text-gray-600 mb-3 text-lg">
+                    <p className="text-gray-600 mb-3 text-lg z-10">
                       {slide.description}
                     </p>
                     <p className="text-gray-700 font-medium italic mb-6 leading-relaxed">

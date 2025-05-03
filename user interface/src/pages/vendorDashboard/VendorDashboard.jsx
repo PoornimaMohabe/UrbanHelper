@@ -7,7 +7,6 @@ const VendorDashboard = () => {
 
   return (
     <div className="w-full mt-20">
-      {/* Hero Section */}
       <div className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden">
         <img
           src={vendorhome}
@@ -26,7 +25,6 @@ const VendorDashboard = () => {
         </div>
       </div>
 
-      {/* Section with Circles and Button */}
       <div className="w-full py-16 px-6 bg-[#e9d9df]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left Side */}
@@ -50,7 +48,7 @@ const VendorDashboard = () => {
             </button>
           </div>
 
-          {/* Right Side - Decorative Circles */}
+          {/* Right Side */}
           <div className="w-full md:w-1/2 h-[300px] relative flex items-center justify-center">
             <div className="absolute w-60 h-60 bg-green-200 rounded-full z-10 left-6 top-4 opacity-80"></div>
             <div className="absolute w-52 h-52 bg-yellow-300 rounded-full z-20 left-20 top-28 opacity-80"></div>

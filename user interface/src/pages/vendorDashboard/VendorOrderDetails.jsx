@@ -48,7 +48,7 @@ const VendorOrderDetails = () => {
     try {
       const token = localStorage.getItem("token");
 
-      // Send the update request to backend
+ 
       const response = await axios.patch(
         `${SERVICE_REQUEST_UPDATE_URL}/${id}`,
         { status: newStatus },
@@ -70,7 +70,7 @@ const VendorOrderDetails = () => {
         console.error("Failed to update status:", response.data.msg);
       }
 
-      // Update frontend state only if backend update is successful
+      // Update frontend
     } catch (error) {
       console.error("Failed to update status:", error);
       showToast(`${error.message}`, "Failed to update status", "error");

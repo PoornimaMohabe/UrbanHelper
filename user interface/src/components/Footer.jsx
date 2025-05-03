@@ -25,7 +25,7 @@ const Footer = () => {
       <hr className="border-t border-[#FFFFFF33] mb-10" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 text-sm text-center sm:text-left">
-        {/* Logo */}
+    
         <div>
           <h1 className="text-3xl font-light leading-none">
             Urban

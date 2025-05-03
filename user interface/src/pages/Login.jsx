@@ -9,7 +9,7 @@ import { loginFunction } from "../redux/actionCreator";
 function Login({ toggle }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user"); // ✅ Added role state with default 'user'
+  const [role, setRole] = useState("user");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function Login({ toggle }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fromData = { email, password, role }; // ✅ Include role
+    const fromData = { email, password, role }; 
     console.log(fromData);
     dispatch(loginFunction(fromData, showToast, navigate));
   };
@@ -64,7 +64,7 @@ function Login({ toggle }) {
               required
             />
 
-            {/* ✅ Role dropdown */}
+      
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
