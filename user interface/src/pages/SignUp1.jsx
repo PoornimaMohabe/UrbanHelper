@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Toastnotification from "../utils/Toastnotification";
 import { registerURL } from "../utils/url";
 
-function SignUp({ toggle }) {
+function SignUp1({ toggle }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,6 +15,7 @@ function SignUp({ toggle }) {
   const { showToast } = Toastnotification();
   const navigate = useNavigate();
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -90,6 +91,7 @@ function SignUp({ toggle }) {
               onChange={(e) => setName(e.target.value)}
               required
             />
+
             <input
               type="email"
               placeholder="Email"
@@ -145,4 +147,4 @@ function SignUp({ toggle }) {
   );
 }
 
-export default SignUp;
+export default SignUp1;

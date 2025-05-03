@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import VendorCard from "./VendorCard";
 import { ALL_VENDOR_URL } from "../../utils/url";
+import Toastnotification from "../../utils/Toastnotification";
 
 const AvailableVendors = () => {
+  
   const [vendors, setVendors] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("All");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const { showToast } = Toastnotification();
 
   const categories = [
     "All",

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Login from "./Login";
-import SignUp from "./Signup";
+
 import "../AuthStyles.css";
+import SignUp1 from "./SignUp1";
+
 
 const AuthLayout = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -16,7 +18,7 @@ const AuthLayout = () => {
             <Login toggle={toggleForm} />
           </div>
           <div className="auth-back">
-            <SignUp toggle={toggleForm} />
+            <SignUp1 toggle={toggleForm} />
           </div>
         </div>
       </div>
