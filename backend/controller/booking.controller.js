@@ -36,15 +36,16 @@ const getUserBookings = async (req, res) => {
     }
 };
 
-// const getVendorBookings = async (req, res) => {
-//     const { vendorId } = req.params;
-//     try {
-//         const bookings = await BookingModel.find({ vendorId }).populate("userId");
-//         res.status(200).json({ bookings });
-//     } catch (error) {
-//         res.status(400).json({ msg: error.message });
-//     }
-// };
+const getVendorBookings = async (req, res) => {
+    const id = req.user.userId
+    console.log(id);
+    try {
+        const bookings = await BookingModel.find({ vendorId : id })
+        res.status(200).json({ bookings });
+    } catch (error) {
+        res.status(400).json({ msg: error.message });
+    }
+};
 
 const updateBookingStatus = async (req, res) => {
     const { id } = req.params;
@@ -74,7 +75,7 @@ module.exports = {
     createBooking,
     getAllBookings,
     getUserBookings,
-    // getVendorBookings,
+    getVendorBookings,
     updateBookingStatus, 
     deleteBooking
 };

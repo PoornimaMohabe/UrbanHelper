@@ -3,6 +3,9 @@ import userhomeStatic from "../../assets/images/userhomeStatic.png";
 import easyuse from "../../assets/images/easy.png";
 import easypay from "../../assets/images/easyPay.png";
 import homeStatic from "../../assets/images/homeStatic.png";
+import VendorCarousel from "./VendorCarousel";
+import VendorSection from "./VendorSection";
+import { Link } from "react-router-dom";
 
 function HomeStatic() {
   return (
@@ -18,9 +21,11 @@ function HomeStatic() {
             daily help or special occasions, get connected with the right
             professionals with just a few clicks.
           </p>
-          <button className="bg-[#00bcd4] hover:bg-[#00a2b2] text-white font-semibold py-3 px-6 rounded-full text-sm tracking-wide">
-            START YOUR FINDING
-          </button>
+          <Link to="/vendors">
+            <button className="bg-[#00bcd4] hover:bg-[#00a2b2] text-white font-semibold py-3 px-6 rounded-full text-sm tracking-wide">
+              START YOUR FINDING
+            </button>
+          </Link>
         </div>
         <div className="relative w-[400px] h-[280px] mx-auto lg:mx-0">
           <img
@@ -77,6 +82,8 @@ function HomeStatic() {
           </div>
         </div>
       </div>
+      <VendorCarousel />
+      <VendorSection />
     </section>
   );
 }

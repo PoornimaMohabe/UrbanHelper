@@ -1,64 +1,60 @@
-
-import axios from "axios"
+import axios from "axios";
 import { LOGINFAILURE, LOGINLOADING, LOGINSUCCESS, LOGOUTFAILURE, LOGOUTLOADING, LOGOUTSUCCESS } from "./actionType"
-import { loginUrl } from "../utils/url"
 
+import { loginUrl, VENDOR_LOGIN_URL } from "../utils/url"; // ✅ Make sure this exists
 
 export const loginFunction = (fromData, showToast, navigate) => {
-    return async (dispatch) => {
-        dispatch({ type: LOGINLOADING })
-        try {
-         
+  return async (dispatch) => {
+    dispatch({ type: LOGINLOADING });
 
-            const response = await axios.post(loginUrl, fromData)
-            console.log("this is from loginfuntion", response.data);
-            
-              if (response.data.msg == 'please register first or please check email') {
-        
-                showToast('please register first', `${response.data.msg}` , "error" )
-                dispatch({ type: LOGINFAILURE, payload: response.data })
-            }
+    const { role, ...restData } = fromData;
 
-            else if (response.data.msg == 'user login successfully') {
-                console.log(response.data);
-                
-         
-                
-                 const token = response.data.token
-                localStorage.setItem("token", response.data.token)
-                localStorage.setItem("user", JSON.stringify(response.data.user))
-                showToast('Login successfull', `${response.data.msg}`  )
-                const redirectPath = localStorage.getItem("redirectPath")
-               if (redirectPath) {
-                    localStorage.removeItem("redirectPath")
-                    navigate(redirectPath)
-                }
-                else {
-                    navigate("/")
-                }
-                dispatch({ type: LOGINSUCCESS, payload: response.data })
-            }
+    // ✅ Decide URL based on role
+    const url = role === "vendor" ? VENDOR_LOGIN_URL : loginUrl;
+    console.log(role)
 
-            else if (response.data.msg == 'please check password') {
-               
-                showToast('Check password.',  "please check password." , "error")
-                dispatch({ type: LOGINFAILURE, payload: response.data.msg })
-            }
+    try {
+      const response = await axios.post(url, restData);
+      console.log("this is from loginFunction", response.data);
 
-            else {
-               
-        
-                showToast(`${response.data.mes}`, `${response.data.mes}` , "error")
-                dispatch({ type: LOGINFAILURE, payload: response.data.msg })
-            }
-
-
-        } catch (error) {
-            dispatch({ type: LOGINFAILURE, payload: error.message })
+      if (
+        response.data.msg === "please register first or please check email"
+      ) {
+        showToast(
+          "Please register first",
+          `${response.data.msg}`,
+          "error"
+        );
+        dispatch({ type: LOGINFAILURE, payload: response.data });
+      } else if (response.data.msg === "user login successfully") {
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        showToast("Login successful", `${response.data.msg}`);
+        const redirectPath = localStorage.getItem("redirectPath");
+        if (redirectPath) {
+          localStorage.removeItem("redirectPath");
+          navigate(redirectPath);
+        } else {
+          navigate("/");
         }
+        dispatch({ type: LOGINSUCCESS, payload: response.data });
+      } else if (response.data.msg === "please check password") {
+        showToast("Check password", "Please check password", "error");
+        dispatch({ type: LOGINFAILURE, payload: response.data.msg });
+      } else {
+        showToast(
+          `${response.data.mes}`,
+          `${response.data.mes}`,
+          "error"
+        );
+        dispatch({ type: LOGINFAILURE, payload: response.data.msg });
+      }
+    } catch (error) {
+      dispatch({ type: LOGINFAILURE, payload: error.message });
     }
-}
-
+  };
+};
 
 
 

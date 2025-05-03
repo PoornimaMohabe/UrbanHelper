@@ -20,7 +20,7 @@ import Toastnotification from "../../utils/Toastnotification";
 
 const VendorDetails = () => {
   const { id } = useParams();
-  const userDetails = JSON.parse(localStorage.getItem("user"));
+  const userDetails = JSON.parse(localStorage.getItem("user")) || "";
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
   const { showToast } = Toastnotification();
@@ -51,6 +51,7 @@ const VendorDetails = () => {
     const bookingPayload = {
       ...bookingData,
       userId: userDetails?._id,
+      username: userDetails?.name,
       vendorId: vendor?._id,
       vendorName: vendor?.name,
       serviceType: vendor?.serviceType,

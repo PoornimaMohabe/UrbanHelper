@@ -12,9 +12,9 @@ const registerVendor = async (req, res) => {
         const vendorMobile = await VendorModel.findOne({ mobileNumber });
 
         if (vendorEmail) {
-            res.status(200).json({status : false , msg: `Vendor already registered with email ${email}` });
+            res.status(200).json({status : false , msg: `user already registered with email ${email}` });
         } else if (vendorMobile) {
-            res.status(200).json({status : false , msg: `Vendor already registered with mobile number ${mobileNumber}` });
+            res.status(200).json({status : false , msg: `user already registered with mobile number ${mobileNumber}` });
         } else {
             bcrypt.hash(password, 5, async function (err, hash) {
                 if (err) {
@@ -35,7 +35,7 @@ const registerVendor = async (req, res) => {
                         description
                     });
                     await newVendor.save();
-                    res.status(200).json({status : true , msg: `Vendor registered successfully` });
+                    res.status(200).json({status : true , msg: `user registered successfully` });
                 }
             });
         }
@@ -49,17 +49,17 @@ const loginVendor = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const vendor = await VendorModel.findOne({ email });
+        const user = await VendorModel.findOne({ email });
 
-        if (!vendor) {
-            res.status(200).json({status : false , msg: `Please register first or check email` });
+        if (!user) {
+            res.status(200).json({status : false , msg: `please register first or please check email` });
         } else {
-            bcrypt.compare(password, vendor.password, function (err, result) {
+            bcrypt.compare(password, user.password, function (err, result) {
                 if (err) {
                     res.status(400).json({status : false , msg: err });
                 } else if (result) {
-                    const token = jwt.sign({ tokenVendor: vendor }, process.env.secret_key);
-                    res.status(200).json({status : true , msg: "Vendor login successful", vendor, token });
+                    const token = jwt.sign({ tokenUser: user }, process.env.secret_key);
+                    res.status(200).json({status : true , msg: "user login successfully", user, token });
                 } else {
                     res.status(200).json({status : false , msg: "Please check password" });
                 }

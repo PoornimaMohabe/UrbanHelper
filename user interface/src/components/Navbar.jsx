@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import logo from '../assets/images/logo.png'
 import {
@@ -9,9 +9,28 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutfunction } from "../redux/actionCreator";
+import Toastnotification from "../utils/Toastnotification";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const { showToast } = Toastnotification();
+
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+  console.log(state.auth);
+  const isActive = (path) => location.pathname === path;
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      dispatch(logoutfunction(navigate, showToast));
+    }
+  };
 
   return (
     <div className="w-full fixed top-0 bg-white shadow-md z-50">
@@ -40,45 +59,106 @@ const Navbar = () => {
 
         {/* Logo */}
         <div className="text-center leading-tight">
-          <img src={logo} alt="logo" className="object-cover h-16" />
+         <img src={logo} alt="logo" className="object-cover h-16"/>
         </div>
 
         {/* Right icons */}
         <div className="hidden md:flex space-x-8 text-xs items-center">
           <div className="flex flex-col items-center">
             <FaUser className="text-xl" />
-            <Link to="/loginSignup">
-              {" "}
-              <span>SIGN IN</span>{" "}
-            </Link>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaHeart className="text-xl" />
-            <span>WISHLIST</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <FaShoppingBag className="text-xl" />
-            <span>BAG (£0)</span>
+            {state?.auth?.login ? (
+              <Link to="/loginSignup">
+                <span
+                  onClick={() => {
+                    handleLogOut();
+                    setIsOpen(false);
+                  }}
+                >
+                  Logout
+                </span>
+              </Link>
+            ) : (
+              <Link to="/loginSignup">
+                <span>SIGN IN</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Bottom nav links */}
+      {/* Bottom nav links (Desktop) */}
       <div className="hidden md:flex justify-center space-x-8 text-sm font-semibold uppercase text-gray-600 py-2 border-b">
         <Link to="/">
-          <span className="cursor-pointer text-pink-500">Home</span>
+          <span
+            className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+              isActive("/")
+                ? "border-b-4 border-pink-500"
+                : "border-b-4 border-transparent"
+            }`}
+          >
+            Home
+          </span>
         </Link>
         <Link to="/vendors">
-          <span className="cursor-pointer border-b-2 border-black">
-            find Vendor
+          <span
+            className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+              isActive("/vendors")
+                ? "border-b-4 border-pink-500"
+                : "border-b-4 border-transparent"
+            }`}
+          >
+            Find Vendor
           </span>
         </Link>
         <span className="border-r h-4 border-gray-300 mx-2" />
-        <span className="cursor-pointer">About Us</span>
-        <span className="cursor-pointer">Contact Us</span>
-        <Link to="/bookService">
-          <span className="cursor-pointer">My book service</span>
+        <Link to="/about-us">
+          <span
+            className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+              isActive("/about-us")
+                ? "border-b-4 border-pink-500"
+                : "border-b-4 border-transparent"
+            }`}
+          >
+            About Us
+          </span>
         </Link>
+        <Link to="/contact-us">
+          <span
+            className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+              isActive("/contact-us")
+                ? "border-b-4 border-pink-500"
+                : "border-b-4 border-transparent"
+            }`}
+          >
+            Contact Us
+          </span>
+        </Link>
+        {state?.auth?.login && state?.auth?.role === "user" && (
+          <Link to="/bookService">
+            <span
+              className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                isActive("/bookService")
+                  ? "border-b-4 border-pink-500"
+                  : "border-b-4 border-transparent"
+              }`}
+            >
+              My Book Service
+            </span>
+          </Link>
+        )}
+        {state?.auth?.login && state?.auth?.role === "worker" && (
+          <Link to="/service-request">
+            <span
+              className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                isActive("/service-request")
+                  ? "border-b-4 border-pink-500"
+                  : "border-b-4 border-transparent"
+              }`}
+            >
+              Manager request
+            </span>
+          </Link>
+        )}
       </div>
 
       {/* Mobile Menu */}
@@ -93,27 +173,88 @@ const Navbar = () => {
               />
               <FaSearch className="absolute left-3 top-2.5 text-gray-500" />
             </div>
-            <span className="cursor-pointer text-pink-500">Home</span>
-            <Link to="/vendors">
-              <span className="cursor-pointer border-b-2 border-black">
-                find Vendor
+
+            <Link to="/" onClick={() => setIsOpen(false)}>
+              <span
+                className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                  isActive("/")
+                    ? "border-b-4 border-pink-500"
+                    : "border-b-4 border-transparent"
+                }`}
+              >
+                Home
               </span>
             </Link>
-            <span className="cursor-pointer">About Us</span>
-            <span className="cursor-pointer">Contact Us</span>
+            <Link to="/vendors" onClick={() => setIsOpen(false)}>
+              <span
+                className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                  isActive("/vendors")
+                    ? "border-b-4 border-pink-500"
+                    : "border-b-4 border-transparent"
+                }`}
+              >
+                Find Vendor
+              </span>
+            </Link>
+            <Link to="/about-us" onClick={() => setIsOpen(false)}>
+              <span
+                className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                  isActive("/about-us")
+                    ? "border-b-4 border-pink-500"
+                    : "border-b-4 border-transparent"
+                }`}
+              >
+                About Us
+              </span>
+            </Link>
+            <Link to="/contact-us" onClick={() => setIsOpen(false)}>
+              <span
+                className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                  isActive("/contact-us")
+                    ? "border-b-4 border-pink-500"
+                    : "border-b-4 border-transparent"
+                }`}
+              >
+                Contact Us
+              </span>
+            </Link>
+            {state?.auth?.login && state?.auth?.role === "user" && (
+              <Link to="/bookService" onClick={() => setIsOpen(false)}>
+                <span
+                  className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                    isActive("/bookService")
+                      ? "border-b-4 border-pink-500"
+                      : "border-b-4 border-transparent"
+                  }`}
+                >
+                  My Book Service
+                </span>
+              </Link>
+            )}
+
+            {/* Icons */}
             <div className="flex space-x-8 text-xs items-center">
-              <div className="flex flex-col items-center">
-                <FaUser className="text-xl" />
-                <span>SIGN IN</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaHeart className="text-xl" />
-                <span>WISHLIST</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaShoppingBag className="text-xl" />
-                <span>BAG (£0)</span>
-              </div>
+              <Link to="/loginSignup" onClick={() => setIsOpen(false)}>
+                <div className="flex flex-col items-center">
+                  <FaUser className="text-xl" />
+                  {state?.auth?.login ? (
+                    <Link to="/loginSignup">
+                      <span
+                        onClick={() => {
+                          handleLogOut();
+                          setIsOpen(false);
+                        }}
+                      >
+                        Logout
+                      </span>
+                    </Link>
+                  ) : (
+                    <Link to="/loginSignup">
+                      <span>SIGN IN</span>
+                    </Link>
+                  )}
+                </div>
+              </Link>
             </div>
           </div>
         </div>

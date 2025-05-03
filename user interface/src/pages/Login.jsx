@@ -9,6 +9,7 @@ import { loginFunction } from "../redux/actionCreator";
 function Login({ toggle }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("user"); // ✅ Added role state with default 'user'
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -17,7 +18,8 @@ function Login({ toggle }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fromData = { email, password };
+    const fromData = { email, password, role }; // ✅ Include role
+    console.log(fromData);
     dispatch(loginFunction(fromData, showToast, navigate));
   };
 
@@ -36,11 +38,9 @@ function Login({ toggle }) {
             <span></span>
           </div>
           <div className="welcome-text">
-            <h2 className="text-white text-3xl font-bold mb-6">Welcome Back! to
-               <br /> 
-                <span className="text-amber-300 text-sm">Urban Helper</span></h2>
+            <h2 className="text-white text-3xl font-bold mb-6">Welcome Back!</h2>
             <p className="text-white text-lg">
-            Welcome back! Log in to your account and take full control of your services.
+            Your journey to smart service management begins here.
             </p>
           </div>
         </div>
@@ -63,18 +63,22 @@ function Login({ toggle }) {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            {/* <select
+
+            {/* ✅ Role dropdown */}
+            <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
               className="auth-input"
             >
-              <option value="student">Student</option>
-              <option value="mentor">Mentor</option>
-            </select> */}
+              <option value="user">Login as User</option>
+              <option value="vendor">Login as Vendor</option>
+            </select>
+
             <button type="submit" className="auth-button">
               Sign In
             </button>
           </form>
+
           <p className="text-sm text-gray-600 mt-4">
             Don't have an account?
             <button

@@ -14,12 +14,12 @@ const authmiddleware = async (req, res, next) => {
                     res.status(400).json({ Error: err })
                 }
                 else {
-                     console.log("currrent user" , decoded.tokenUser);
+                     console.log("currrent user" , decoded);
 
                      if(req.method == "POST" || req.method == "GET"){
 
                         req.user = {
-                           username: decoded.tokenUser.name,
+                           username: decoded?.tokenUser?.name,
                            userId: decoded.tokenUser._id,
                            mobileNumber: decoded.tokenUser.mobileNumber,
                            email: decoded.tokenUser.email,

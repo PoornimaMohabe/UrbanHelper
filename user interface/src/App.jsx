@@ -14,6 +14,7 @@ import AvailableVendors from "./pages/vailableVendors/AvailableVendors";
 import VendorDetails from "./pages/vailableVendors/VendorDetails";
 import { Toaster } from "react-hot-toast";
 import VendorDashboard from "./pages/vendorDashboard/VendorDashboard";
+import VendorOrderDetails from "./pages/vendorDashboard/VendorOrderDetails";
 
 function App() {
   return (
@@ -23,19 +24,22 @@ function App() {
         {/* authlayout is parent of login and signup  */}
         {/* <AuthLayout/>       */}
       </div>
+
       <div className="mt-28">
-        {/* <AllRoutes /> */}
+        <AllRoutes />
         {/* <VendorDashboard /> */}
-        {/* <VendorDetails /> */}
-        {/* <BookingDetails /> */}
-        {/* <Payment /> */}
-        {/* <AvailableVendors /> */}
-        {/* <VendorCarousel /> */}
+        {/* <VendorOrderDetails /> */}
         {/* <VendorSection /> */}
         {/* <HomeStatic /> */}
-
-        {/* Uncomment the components you want to render */}
-        <AuthLayout/>
+        {/* <VendorCarousel /> */}
+        {/* <AvailableVendors/> */}
+        {/* <VendorDetails/> */}
+        {/* <BookingDetails/> */}
+        {/* <Payment /> */}
+        {/* <Toaster position="top-center" reverseOrder={false} /> */}
+        {/* <About/> */}
+        {/* <ContactUs/> */}
+        {/* <AuthLayout/> */}
         {/* <About/> */}
         {/* <ContactUs/> */}
         {/* <HomeStatic />
@@ -47,6 +51,7 @@ function App() {
         {/* <BookingDetails/> */}
         {/* <Toaster position="top-center" reverseOrder={false} />
         <Payment /> */}
+        {/* <VendorRegister /> */}
 
         <Footer />
       </div>

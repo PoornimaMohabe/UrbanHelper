@@ -20,30 +20,30 @@ const VendorDashboard = () => {
             Empower Your Business
           </h1>
           <p className="text-lg md:text-xl font-medium">
-            Manage your orders, track service performance, and deliver excellence.
+            Manage your orders, track service performance, and deliver
+            excellence.
           </p>
-
         </div>
       </div>
 
       {/* Section with Circles and Button */}
       <div className="w-full py-16 px-6 bg-[#e9d9df]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-            
           {/* Left Side */}
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h2 className="text-3xl font-bold mb-6 text-gray-800">
               Ready to take control?
             </h2>
             <p className="text-md text-gray-700 mb-6 font-medium leading-relaxed">
-  अपने व्यवसाय को नई ऊँचाइयों तक पहुँचाने का समय आ गया है।<br />
-  हर ऑर्डर पर आपका नियंत्रण, हर कदम पर आपकी सफलता —<br />
-  <span className="text-green-700 font-semibold">
-    क्योंकि जब आप नियंत्रण में होते हैं, तो व्यापार खुद बोलता है।
-  </span>
-</p>
+              अपने व्यवसाय को नई ऊँचाइयों तक पहुँचाने का समय आ गया है।
+              <br />
+              हर ऑर्डर पर आपका नियंत्रण, हर कदम पर आपकी सफलता —<br />
+              <span className="text-green-700 font-semibold">
+                क्योंकि जब आप नियंत्रण में होते हैं, तो व्यापार खुद बोलता है।
+              </span>
+            </p>
             <button
-              onClick={() => navigate("/vendor/orders")}
+              onClick={() => navigate("/service-request")}
               className="bg-green-600 hover:bg-green-700 text-white text-lg px-6 py-3 rounded-full shadow-md transition-transform transform hover:scale-105 duration-300"
             >
               Manage Orders

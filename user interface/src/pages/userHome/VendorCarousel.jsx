@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import userhomeStatic from "../../assets/images/userhomeStatic.png";
+import VendorSection from "./VendorSection";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -51,70 +53,74 @@ export default function VendorCarousel() {
   }, [current]);
 
   return (
-    <div className="w-full h-[500px] overflow-hidden">
-      <div className="relative h-full">
-        <div
-          className="whitespace-nowrap transition-transform duration-700 ease-in-out h-full"
-          style={{ transform: `translateX(-${current * 100}%)` }}
-        >
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`inline-block w-full h-full ${slide.bg}`}
-            >
-              <div className="h-full max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
-                {/* Left: Text */}
-                <div className="lg:w-1/2 text-center lg:text-left max-w-xl ">
-                  <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                    {slide.title}
-                  </h2>
-                  <p className="text-gray-600 mb-3 text-lg">
-                    {slide.description}
-                  </p>
-                  <p className="text-gray-700 font-medium italic mb-6 leading-relaxed">
-                    {slide.power}
-                  </p>
-                  <button className="bg-[#00bcd4] hover:bg-[#0197a0] text-white px-6 py-3 rounded-full font-semibold transition shadow">
-                    {slide.button}
-                  </button>
-                </div>
+    <div>
+      <div className="w-full h-[500px] overflow-hidden">
+        <div className="relative h-full">
+          <div
+            className="whitespace-nowrap transition-transform duration-700 ease-in-out h-full"
+            style={{ transform: `translateX(-${current * 100}%)` }}
+          >
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`inline-block w-full h-full ${slide.bg}`}
+              >
+                <div className="h-full max-w-6xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center justify-between gap-10">
+                  {/* Left: Text */}
+                  <div className="lg:w-1/2 text-center lg:text-left max-w-xl ">
+                    <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                      {slide.title}
+                    </h2>
+                    <p className="text-gray-600 mb-3 text-lg">
+                      {slide.description}
+                    </p>
+                    <p className="text-gray-700 font-medium italic mb-6 leading-relaxed">
+                      {slide.power}
+                    </p>
+                    <Link to="/vendors">
+                      <button className="bg-[#00bcd4] hover:bg-[#0197a0] text-white px-6 py-3 rounded-full font-semibold transition shadow">
+                        {slide.button}
+                      </button>
+                    </Link>
+                  </div>
 
-                <div className="lg:w-1/2 flex justify-center items-center h-full">
-                  <img
-                    src={slide.image}
-                    alt={slide.title}
-                    className="w-full max-w-md mx-auto drop-shadow-md object-contain h-[300px]"
-                  />
+                  <div className="lg:w-1/2 flex justify-center items-center h-full">
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="w-full max-w-md mx-auto drop-shadow-md object-contain h-[300px]"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          <button
+            onClick={prevSlide}
+            className="absolute top-1/2 -left-5 transform -translate-y-1/2 bg-white shadow-lg p-2 rounded-full hover:bg-gray-100 z-10"
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-600" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute top-1/2 -right-5 transform -translate-y-1/2 bg-white shadow-lg p-2 rounded-full hover:bg-gray-100 z-10"
+          >
+            <ChevronRight className="w-6 h-6 text-gray-600" />
+          </button>
         </div>
 
-        <button
-          onClick={prevSlide}
-          className="absolute top-1/2 -left-5 transform -translate-y-1/2 bg-white shadow-lg p-2 rounded-full hover:bg-gray-100 z-10"
-        >
-          <ChevronLeft className="w-6 h-6 text-gray-600" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute top-1/2 -right-5 transform -translate-y-1/2 bg-white shadow-lg p-2 rounded-full hover:bg-gray-100 z-10"
-        >
-          <ChevronRight className="w-6 h-6 text-gray-600" />
-        </button>
-      </div>
-
-      <div className="flex justify-center mt-6 space-x-2">
-        {slides.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full cursor-pointer transition ${
-              current === index ? "bg-[#00bcd4]" : "bg-gray-300"
-            }`}
-          ></div>
-        ))}
+        <div className="flex justify-center mt-6 space-x-2">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              onClick={() => setCurrent(index)}
+              className={`w-3 h-3 rounded-full cursor-pointer transition ${
+                current === index ? "bg-[#00bcd4]" : "bg-gray-300"
+              }`}
+            ></div>
+          ))}
+        </div>
       </div>
     </div>
   );
