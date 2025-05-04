@@ -1,8 +1,6 @@
 // export const BASE_URL = "http://localhost:4500"
 export const BASE_URL = "https://urbanhelper-3sua.onrender.com"
 
-
-
 // login and signup
 export const registerURL = `${BASE_URL}/register`
 export const loginUrl = `${BASE_URL}/login`
