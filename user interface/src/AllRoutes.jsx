@@ -12,6 +12,7 @@ import VendorRegister from "./pages/VendorRegister";
 import VendorDashboard from "./pages/vendorDashboard/VendorDashboard";
 import VendorOrderDetails from "./pages/vendorDashboard/VendorOrderDetails";
 import { useSelector } from "react-redux";
+import Profile from "./pages/userprofile/Profile";
 
 const AllRoutes = () => {
   const state = useSelector((state) => state);
@@ -32,9 +33,11 @@ const AllRoutes = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/vendor-registration" element={<VendorRegister />} />
+        {/* <Route path="/vendor-dashboard" element={<VendorDashboard />} /> */}
         <Route path="/service-request" element={<VendorOrderDetails />} />
+        <Route path="/user-profile" element={<Profile />} />
 
-
+        {/* Add more routes here if needed */}
       </Routes>
     </ScrollToTop>
   );

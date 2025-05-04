@@ -1,5 +1,5 @@
-// export const BASE_URL = "http://localhost:4500"
-export const BASE_URL = "https://urbanhelper-3sua.onrender.com"
+export const BASE_URL = "http://localhost:4500"
+// export const BASE_URL = "https://urbanhelper-3sua.onrender.com"
 
 
 
@@ -12,7 +12,7 @@ export const ALL_VENDOR_URL = `${BASE_URL}/get-all-vendor`
 export const GET_VENDOR_BY_ID = `${BASE_URL}/vendor`
 export const BOOK_VENDOR = `${BASE_URL}/book-vendor`
 export const GET_VENDOR_BOOKING = `${BASE_URL}/service-request`
-
+export const VENDOR_UPDATE_STATUS_URL = `${BASE_URL}/vendor-update`
 
 
 

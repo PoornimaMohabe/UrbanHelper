@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import logo from '../assets/images/logo.png'
+import logo from "../assets/images/logo.png";
 import {
   FaSearch,
   FaUser,
@@ -34,7 +34,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full fixed top-0 bg-white shadow-md z-50">
-   
+      {/* Top bar */}
       <div className="flex justify-between items-center px-4 md:px-8 py-4 border-b">
         {/* Hamburger (Mobile) */}
         <div className="md:hidden">
@@ -47,7 +47,7 @@ const Navbar = () => {
           </button>
         </div>
 
-      
+        {/* Search */}
         <div className="relative hidden md:block">
           <input
             type="text"
@@ -57,17 +57,17 @@ const Navbar = () => {
           <FaSearch className="absolute left-3 top-2.5 text-gray-500" />
         </div>
 
-    
+        {/* Logo */}
         <div className="text-center leading-tight">
-         <img src={logo} alt="logo" className="object-cover h-16"/>
+          <img src={logo} alt="logo" className="object-cover h-16" />
         </div>
 
-       
+        {/* Right icons */}
         <div className="hidden md:flex space-x-8 text-xs items-center">
           <div className="flex flex-col items-center">
-            <FaUser className="text-xl" />
             {state?.auth?.login ? (
-              <Link to="/loginSignup">
+              <Link to="/loginSignup" className="flex flex-col items-center">
+                <FaUser className="text-xl" />
                 <span
                   onClick={() => {
                     handleLogOut();
@@ -78,7 +78,8 @@ const Navbar = () => {
                 </span>
               </Link>
             ) : (
-              <Link to="/loginSignup">
+              <Link to="/loginSignup" className="flex flex-col items-center">
+                <FaUser className="text-xl" />
                 <span>SIGN IN</span>
               </Link>
             )}
@@ -86,7 +87,7 @@ const Navbar = () => {
         </div>
       </div>
 
-    
+      {/* Bottom nav links (Desktop) */}
       <div className="hidden md:flex justify-center space-x-8 text-sm font-semibold uppercase text-gray-600 py-2 border-b">
         <Link to="/">
           <span
@@ -133,6 +134,7 @@ const Navbar = () => {
             Contact Us
           </span>
         </Link>
+        <span className="border-r h-4 border-gray-300 mx-2" />
         {state?.auth?.login && state?.auth?.role === "user" && (
           <Link to="/bookService">
             <span
@@ -156,6 +158,21 @@ const Navbar = () => {
               }`}
             >
               Manager request
+            </span>
+          </Link>
+        )}
+        {state?.auth?.login && (
+          <Link to="/user-profile">
+            <span
+              className={`cursor-pointer px-1 pb-1 transition-all duration-300 ${
+                isActive("/user-profile")
+                  ? "border-b-4 border-pink-500"
+                  : "border-b-4 border-transparent"
+              }`}
+            >
+              {state?.auth?.role === "worker"
+                ? `Vendor Profile`
+                : `User Profile`}
             </span>
           </Link>
         )}
@@ -232,7 +249,7 @@ const Navbar = () => {
               </Link>
             )}
 
-         
+            {/* Icons */}
             <div className="flex space-x-8 text-xs items-center">
               <Link to="/loginSignup" onClick={() => setIsOpen(false)}>
                 <div className="flex flex-col items-center">
