@@ -27,6 +27,7 @@ export const VENDOR_LOGIN_URL = `${BASE_URL}/vendor-login`
 //service request
 export const SERVICE_REQUEST_UPDATE_URL = `${BASE_URL}/service-status`
 
+
 //contactu use
 export const CONTACT_URL = `${BASE_URL}/submit-query`
 export const GET_ALL_CONTACT = `${BASE_URL}/get-all-queries`
